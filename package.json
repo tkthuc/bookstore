@@ -1,0 +1,22 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "An online bookstore for sell/buy old books",
+  "main": "index.js",
+  "repository": "bookstore.sales.com",
+  "author": "Tran Kien Thuc",
+  "license": "MIT",
+  "scripts": {
+     "start": "nodemon ./app.js"
+  },
+  "dependencies": {
+    "apollo-server": "2.0.7",
+    "apollo-server-express": "2.0.6",
+    "express": "4.16.3",
+    "graphql": "14.0.2",
+    "lodash": "4.17.11",
+    "mongoose": "5.2.14",
+    "nodemon": "1.18.4",
+    "uuid": "3.3.2"
+  }
+}
