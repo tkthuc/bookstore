@@ -6,14 +6,14 @@ module.exports = gql`
         book( id: ID! ): Book        
     }
 
-    # extend type Mutation {
-    #     createBook(
-    #         name: String!
-    #         publishedDate: String
-    #         description: String
-    #         authors: [Author!]
-    #     ) : Book!
-    # }
+    extend type Mutation {
+        createBook(
+            name: String!
+            publishedDate: String
+            description: String
+            authors: [ID!]
+        ) : Book!
+    }
 
     type Book {
         id: ID,

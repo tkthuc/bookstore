@@ -17,8 +17,15 @@ module.exports = {
         return null
     },
 
-    books: () => {
-        return null;
+    books: async () => {
+        let books = null;
+        try {
+            books = await Book.find({});            
+        }catch (err) {
+            console.log(err);
+        }
+
+        return books;
     },
 
     book: (parent, { id }) => {
