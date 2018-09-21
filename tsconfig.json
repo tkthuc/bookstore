@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./webapp/dist",
+        "sourceMap": true,
+        "module": "es6",
+        "jsx": "react",
+        "target": "es5",
+        "allowJs": true,
+        "moduleResolution" : "node"
+    },
+    "include": [
+        "./webapp/src"
+    ]
+}
