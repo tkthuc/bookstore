@@ -15,7 +15,7 @@ const resolvers = require('./resolvers');
 
 const graqphql_server = express();
 
-const app = express();
+//const app = express();
 
 const server = new ApolloServer({
     typeDefs: schema,  
@@ -39,13 +39,13 @@ graqphql_server.get('/bookstore', function(req, res, next) {
 mongoose.connect(database.url)
         .then(
             () => {
-                server.applyMiddleware( { app, path: "/bookstore-graphql" });
+                server.applyMiddleware( { app:graqphql_server, path: "/bookstore-graphql" });
 
                 graqphql_server.listen( { port : appConfig.bookstore_port }, () => {
                     console.log(`Bookstore start on port  ${appConfig.graphql_port}`)
                 })
 
-                app.listen( {port : appConfig.graphql_port, path: "/bookstore"}, () =>  {
+                graqphql_server.listen( {port : appConfig.graphql_port, path: "/bookstore"}, () =>  {
                     console.log(`Bookstore GraphQL start on port  ${appConfig.bookstore_port}`)
                 })
             }
