@@ -13,7 +13,10 @@ const schema  = require('./schema');
 
 const resolvers = require('./resolvers');
 
+const bookstore_router = require('./routers/bookstore_router');
+
 const graqphql_server = express();
+
 
 //const app = express();
 
@@ -31,9 +34,7 @@ graqphql_server.use(express.static(path.join(__dirname, 'public')));
 graqphql_server.use(bodyParser.json());
 graqphql_server.use(bodyParser.urlencoded({ extended: false }));
 
-graqphql_server.get('/bookstore', function(req, res, next) {
-    res.sendFile(`${__dirname}/public/index.html`);
-});
+graqphql_server.use('/bookstore', bookstore_router);
   
 
 mongoose.connect(database.url)

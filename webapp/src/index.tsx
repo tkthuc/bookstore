@@ -7,6 +7,9 @@ import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
+
+import { BrowserRouter, HashRouter } from 'react-router-dom';
+
 import App from './App';
 
 const httpLink = createHttpLink({
@@ -20,7 +23,9 @@ const client = new ApolloClient({
 
 ReactDOM.render(
     <ApolloProvider client={client}>
-        <App/>
+        <HashRouter>
+            <App/>  
+        </HashRouter>       
     </ApolloProvider>,
 
     document.getElementById('container')

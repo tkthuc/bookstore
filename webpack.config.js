@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     mode: 'development',
@@ -32,6 +33,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.mjs','.ts', '.tsx', '.js', '.jsx'],
+        alias: {
+            '@': path.resolve(__dirname, 'webapp/src')
+        },
     },
     optimization: {
         splitChunks: {
@@ -59,8 +63,5 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
-    devtool: 'source-map',
-    devServer: {
-        contentBase: './public',
-    }
+    devtool: 'source-map',    
 }
